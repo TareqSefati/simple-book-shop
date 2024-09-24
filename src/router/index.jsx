@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import BookDetailsPage from "../pages/BookDetailsPage";
 import FaqPage from "../pages/FaqPage";
 import Homepage from "../pages/Homepage";
+import NotFoundPage from "../pages/NotFoundPage";
 import { ROUTES } from "../routes";
 const router = createBrowserRouter([
 	{
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
 	{
 		path: `${ROUTES.SINGLE_BOOK.STATIC}`,
 		element: <BookDetailsPage />,
+	},
+	{
+		path: "*",
+		element: <NotFoundPage />,
 	},
 ]);
 
