@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import FaqPage from "../pages/Faqpage";
+import BookDetailsPage from "../pages/BookDetailsPage";
+import FaqPage from "../pages/FaqPage";
 import Homepage from "../pages/Homepage";
 import { ROUTES } from "../routes";
 const router = createBrowserRouter([
@@ -8,16 +9,20 @@ const router = createBrowserRouter([
 		element: <Homepage />,
 	},
 	{
-		path: "/about",
+		path: `${ROUTES.ABOUT}`,
 		element: <span>About</span>,
 	},
 	{
-		path: "/blog",
+		path: `${ROUTES.BLOG}`,
 		element: <span>Blog</span>,
 	},
 	{
 		path: `${ROUTES.FAQ}`,
 		element: <FaqPage />,
+	},
+	{
+		path: `${ROUTES.SINGLE_BOOK.STATIC}`,
+		element: <BookDetailsPage />,
 	},
 ]);
 
