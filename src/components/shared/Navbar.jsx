@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes";
+
 export default function Navbar() {
 	return (
 		<header>
@@ -29,20 +32,22 @@ export default function Navbar() {
 							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
 						>
 							<li>
-								<a>Home</a>
+								<Link to={ROUTES.HOME}>Home</Link>
 							</li>
 							<li>
-								<a>About</a>
+								<Link to={ROUTES.ABOUT}>About</Link>
 							</li>
 							<li>
-								<a>Blog</a>
+								<Link to={ROUTES.BLOG}>Blog</Link>
 							</li>
 							<li>
-								<a>FAQ</a>
+								<Link to={ROUTES.FAQ}>FAQ</Link>
 							</li>
 						</ul>
 					</div>
-					<img className="size-8" src="logo.png" alt="logo" />
+					<Link to={ROUTES.HOME}>
+						<img className="size-8" src="logo.png" alt="logo" />
+					</Link>
 					<a className="font-bold text-sm ml-1 md:text-xl md:font-extrabold">
 						Book Shop
 					</a>
@@ -50,16 +55,16 @@ export default function Navbar() {
 				<div className="navbar-center hidden lg:flex">
 					<ul className="menu menu-horizontal px-1">
 						<li>
-							<a>Home</a>
+							<Link to={ROUTES.HOME}>Home</Link>
 						</li>
 						<li>
-							<a>About</a>
+							<Link to={ROUTES.ABOUT}>About</Link>
 						</li>
 						<li>
-							<a>Blog</a>
+							<Link to={ROUTES.BLOG}>Blog</Link>
 						</li>
 						<li>
-							<a>FAQ</a>
+							<Link to={ROUTES.FAQ}>FAQ</Link>
 						</li>
 					</ul>
 				</div>
