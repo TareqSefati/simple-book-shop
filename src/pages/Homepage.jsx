@@ -5,7 +5,7 @@ import Navbar from "../components/shared/Navbar";
 
 export default function Homepage() {
 	return (
-		<div className="container mx-auto">
+		<div className="container mx-auto w-11/12">
 			<Navbar />
             <Banner />
             <BookList />

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes";
+
 export default function Book(props) {
 	const { book } = props;
 	return (
@@ -19,9 +22,11 @@ export default function Book(props) {
 					<p>Category: {book.category}</p>
 					<p>Tags: {book.tags}</p>
 					<div className="card-actions justify-end">
-						<button className="btn btn-neutral btn-sm">
-							Book Details
-						</button>
+						<Link to={ROUTES.SINGLE_BOOK.DYNAMIC(book.bookId)}>
+							<button className="btn btn-neutral btn-sm">
+								Book Details
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

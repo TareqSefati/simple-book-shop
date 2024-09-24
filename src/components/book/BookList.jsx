@@ -6,14 +6,7 @@ export default function BookList() {
 	useEffect(() => {
 		fetch("books-data.json")
 			.then((res) => res.json())
-			.then((data) => {
-				if (data.length > 0) {
-					//check for empty data
-					setBooks(data);
-				} else {
-					setBooks([]);
-				}
-			})
+			.then((data) => setBooks(data))
 			.catch((error) => console.log("Error", error));
 	}, []);
 
