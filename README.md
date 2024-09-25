@@ -18,4 +18,4 @@ This is a simple responsive, multi page based website using React and React Rout
 6. FAQ section
 7. Footer section
 
--   Live URL:
+-   Live URL: https://simplebook-shop.netlify.app/
