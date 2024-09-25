@@ -46,7 +46,11 @@ export default function Navbar() {
 						</ul>
 					</div>
 					<Link to={ROUTES.HOME}>
-						<img className="size-8" src="logo.png" alt="logo" />
+						<img
+							className="size-8"
+							src="../../../src/img/logo.png"
+							alt="logo"
+						/>
 					</Link>
 					<a className="font-bold text-sm ml-1 md:text-xl md:font-extrabold">
 						Book Shop

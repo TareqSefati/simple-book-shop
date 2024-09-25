@@ -1,56 +1,32 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import BookDetails from "../components/book/BookDetails";
 import Footer from "../components/Footer";
 import Navbar from "../components/shared/Navbar";
 
 export default function BookDetailsPage() {
+	let { bookId } = useParams();
+	const [books, setBooks] = useState([]);
+	useEffect(() => {
+		fetch("../../../src/data/books-data.json")
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log(data);
+				setBooks(data);
+			})
+			.catch((error) => console.log("Error", error));
+	}, []);
+
 	return (
 		<div className="container mx-auto w-11/12">
 			<Navbar />
-
-			<div className="card card-side bg-base-100 shadow-xl mt-10">
-				<figure>
-					<img src={book.image} alt="Movie" />
-				</figure>
-				<div className="card-body">
-					<h2 className="card-title">New movie is released!</h2>
-					<p>Click the button to watch on Jetflix app.</p>
-					<div className="card-actions justify-end">
-						<button
-							onClick={showToastWish}
-							className="btn btn-neutral"
-						>
-							Wish to Read
-						</button>
-						<button
-							onClick={showToastCart}
-							className="btn btn-primary"
-						>
-							Add to Cart
-						</button>
-					</div>
-				</div>
-			</div>
+			{books.map((book) => {
+				if (book.bookId == bookId) {
+					return <BookDetails key={book.bookId} book={book} />;
+				}
+			})}
 
 			<Footer />
-		</div>
-	);
-}
-
-function showToastWish() {
-	return (
-		<div className="toast toast-end">
-			<div className="alert alert-success">
-				<span>Book is added to wish list.</span>
-			</div>
-		</div>
-	);
-}
-
-function showToastCart() {
-	return (
-		<div className="toast toast-end">
-			<div className="alert alert-success">
-				<span>Book is added to cart.</span>
-			</div>
 		</div>
 	);
 }
