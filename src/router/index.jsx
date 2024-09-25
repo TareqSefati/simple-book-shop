@@ -4,6 +4,7 @@ import FaqPage from "../pages/FaqPage";
 import Homepage from "../pages/Homepage";
 import NotFoundPage from "../pages/NotFoundPage";
 import { ROUTES } from "../routes";
+import { booksLoader } from "../utils/BookLoader";
 const router = createBrowserRouter([
 	{
 		path: `${ROUTES.HOME}`,
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
 	{
 		path: `${ROUTES.SINGLE_BOOK.STATIC}`,
 		element: <BookDetailsPage />,
+		loader: booksLoader,
 	},
 	{
 		path: "*",

@@ -48,7 +48,7 @@ export default function Navbar() {
 					<Link to={ROUTES.HOME}>
 						<img
 							className="size-8"
-							src="../../../src/img/logo.png"
+							src="/src/assets/logo.png"
 							alt="logo"
 						/>
 					</Link>

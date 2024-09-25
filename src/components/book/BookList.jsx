@@ -4,7 +4,7 @@ import Book from "./Book";
 export default function BookList() {
 	const [books, setBooks] = useState([]);
 	useEffect(() => {
-		fetch("../../../src/data/books-data.json")
+		fetch("/data/books-data.json")
 			.then((res) => res.json())
 			.then((data) => setBooks(data))
 			.catch((error) => console.log("Error", error));
