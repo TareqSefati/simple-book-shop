@@ -2,6 +2,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function BookDetails({ book }) {
+    // console.log(book)
 	const showToastCart = (bookId, bookName) => {
 		// alert("BookId: " + bookId + " - " + bookName + " added to your cart.");
 		toast.success(
@@ -22,16 +23,20 @@ export default function BookDetails({ book }) {
 				<img src={book.image} alt="book-image" />
 			</figure>
 			<div className="card-body">
-				<h2 className="card-title">Book Name: {book.bookName}</h2>
-				<p>Author: {book.author} </p>
-				<p>Category: {book.category} </p>
-				<p>Review: {book.review} </p>
-				<p>Tags: {book.tags.join(", ")} </p>
-				<p>Total Pages: {book.totalPages} </p>
-				<p>Publisher: {book.publisher} </p>
-				<p>Year Of Publishing: {book.yearOfPublishing} </p>
-				<p>Rating: {book.rating} </p>
-				<p>Details</p>
+				<h2 className="card-title">
+					Book Name: {book.bookName || "No Book found!"}
+				</h2>
+				<p>Author: {book.author || "No Book found!"} </p>
+				<p>Category: {book.category || "No Book found!"} </p>
+				<p>Review: {book.review || "No Book found!"} </p>
+				<p>Tags: {book?.tags?.join(", ") || "No Book found!"} </p>
+				<p>Total Pages: {book.totalPages || "No Book found!"} </p>
+				<p>Publisher: {book.publisher || "No Book found!"} </p>
+				<p>
+					Year Of Publishing:{" "}
+					{book.yearOfPublishing || "No Book found!"}{" "}
+				</p>
+				<p>Rating: {book.rating || "No Book found!"} </p>
 				<div className="card-actions justify-end">
 					<button
 						onClick={() =>

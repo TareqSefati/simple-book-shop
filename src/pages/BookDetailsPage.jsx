@@ -7,13 +7,16 @@ import Navbar from "../components/shared/Navbar";
 export default function BookDetailsPage() {
 	let { bookId } = useParams();
 	//const { books } = useLoaderData();
-	const [books, setBooks] = useState([]);
+	const [book, setBook] = useState({});
 	useEffect(() => {
 		fetch("/data/books-data.json") //Need to be careful.
 			.then((res) => res.json())
 			.then((data) => {
-				// console.log(data);
-				setBooks(data);
+				data.map((bookItem) => {
+					if (bookItem.bookId == bookId) {
+						setBook(bookItem);
+					}
+				});
 			})
 			.catch((error) => console.log("Error", error));
 	}, []);
@@ -21,12 +24,7 @@ export default function BookDetailsPage() {
 	return (
 		<div className="container mx-auto w-11/12">
 			<Navbar />
-			{books.map((book) => {
-				if (book.bookId == bookId) {
-					return <BookDetails key={book.bookId} book={book} />;
-				}
-			})}
-
+			<BookDetails book={book} />
 			<Footer />
 		</div>
 	);
