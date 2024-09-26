@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 	{
 		path: `${ROUTES.SINGLE_BOOK.STATIC}`,
 		element: <BookDetailsPage />,
-		loader: booksLoader,
+		// loader: booksLoader,
 	},
 	{
 		path: "*",

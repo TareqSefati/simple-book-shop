@@ -1,4 +1,21 @@
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function BookDetails({ book }) {
+	const showToastCart = (bookId, bookName) => {
+		// alert("BookId: " + bookId + " - " + bookName + " added to your cart.");
+		toast.success(
+			`BookId: ${book.bookId} - ${book.bookName} has been successfully added to the cart.`
+		);
+	};
+
+	const showToastWish = (bookId, bookName) => {
+		// alert("BookId: " + bookId + " - " + bookName + " added to your wish list");
+		toast.success(
+			`BookId: ${book.bookId} - ${book.bookName} has been successfully added to the Wishlist.`
+		);
+	};
+
 	return (
 		<div className="card card-side bg-base-100 shadow-xl mt-10 p-4">
 			<figure>
@@ -9,7 +26,7 @@ export default function BookDetails({ book }) {
 				<p>Author: {book.author} </p>
 				<p>Category: {book.category} </p>
 				<p>Review: {book.review} </p>
-				<p>Tags: {book.tags} </p>
+				<p>Tags: {book.tags.join(", ")} </p>
 				<p>Total Pages: {book.totalPages} </p>
 				<p>Publisher: {book.publisher} </p>
 				<p>Year Of Publishing: {book.yearOfPublishing} </p>
@@ -32,16 +49,20 @@ export default function BookDetails({ book }) {
 					>
 						Add to Cart
 					</button>
+					<ToastContainer
+						position="bottom-right"
+						autoClose={5000}
+						hideProgressBar={false}
+						newestOnTop={false}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+						theme="light"
+					/>
 				</div>
 			</div>
 		</div>
 	);
-}
-
-function showToastCart(bookId, bookName) {
-	alert("BookId: " + bookId + " - " + bookName + " added to your cart.");
-}
-
-function showToastWish(bookId, bookName) {
-	alert("BookId: " + bookId + " - " + bookName + " added to your wish list");
 }

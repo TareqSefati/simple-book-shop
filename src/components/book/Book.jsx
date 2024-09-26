@@ -20,7 +20,7 @@ export default function Book(props) {
 					</h2>
 					<p>Author: {book.author}</p>
 					<p>Category: {book.category}</p>
-					<p>Tags: {book.tags}</p>
+					<p>Tags: {book.tags.join(", ")}</p>
 					<div className="card-actions justify-end">
 						<Link to={ROUTES.SINGLE_BOOK.DYNAMIC(book.bookId)}>
 							<button className="btn btn-neutral btn-sm">
