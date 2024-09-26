@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 import Book from "./Book";
+import { getAllBooks } from "../../utils/Books";
 
 export default function BookList() {
 	const [books, setBooks] = useState([]);
+    const getAllBooksData = async () => {
+        const value = await getAllBooks();
+        setBooks(value);
+        console.log(books);
+    }
 	useEffect(() => {
-		fetch("/data/books-data.json")
-			.then((res) => res.json())
-			.then((data) => setBooks(data))
-			.catch((error) => console.log("Error", error));
+        // One way to get book by id fetching in here.
+		// fetch("/data/books-data.json")
+		// 	.then((res) => res.json())
+		// 	.then((data) => setBooks(data))
+		// 	.catch((error) => console.log("Error", error));
+
+        //Another way to get book by Id using this util function.
+        getAllBooksData();
 	}, []);
 
 	return (
