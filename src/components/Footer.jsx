@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<div>
+		<div className="container mx-auto w-11/12">
 			<footer className="footer bg-base-200 text-base-content p-10 mt-10">
 				<nav>
 					<h6 className="footer-title">Services</h6>

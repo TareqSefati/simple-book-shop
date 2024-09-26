@@ -5,32 +5,40 @@ import Homepage from "../pages/Homepage";
 import NotFoundPage from "../pages/NotFoundPage";
 import { ROUTES } from "../routes";
 import { booksLoader } from "../utils/BookLoader";
+import CommonLayout from "../layout/CommonLayout";
 const router = createBrowserRouter([
 	{
 		path: `${ROUTES.HOME}`,
-		element: <Homepage />,
+		element: <CommonLayout />,
+        children: [
+            {
+                path: `${ROUTES.HOME}`,
+                element: <Homepage />,
+            },
+            {
+                path: `${ROUTES.ABOUT}`,
+                element: <span>About</span>,
+            },
+            {
+                path: `${ROUTES.BLOG}`,
+                element: <span>Blog</span>,
+            },
+            {
+                path: `${ROUTES.FAQ}`,
+                element: <FaqPage />,
+            },
+            {
+                path: `${ROUTES.SINGLE_BOOK.STATIC}`,
+                element: <BookDetailsPage />,
+                // loader: booksLoader,
+            },
+            {
+                path: "*",
+                element: <NotFoundPage />,
+            },
+        ],
 	},
-	{
-		path: `${ROUTES.ABOUT}`,
-		element: <span>About</span>,
-	},
-	{
-		path: `${ROUTES.BLOG}`,
-		element: <span>Blog</span>,
-	},
-	{
-		path: `${ROUTES.FAQ}`,
-		element: <FaqPage />,
-	},
-	{
-		path: `${ROUTES.SINGLE_BOOK.STATIC}`,
-		element: <BookDetailsPage />,
-		// loader: booksLoader,
-	},
-	{
-		path: "*",
-		element: <NotFoundPage />,
-	},
+	
 ]);
 
 export default router;

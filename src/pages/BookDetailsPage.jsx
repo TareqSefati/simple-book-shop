@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BookDetails from "../components/book/BookDetails";
-import Footer from "../components/Footer";
-import Navbar from "../components/shared/Navbar";
-import { getBookById} from "../utils/Books";
+import { getBookById } from "../utils/Books";
 
 export default function BookDetailsPage() {
 	let { bookId } = useParams();
 	//const { books } = useLoaderData();
 	const [book, setBook] = useState({});
-    const getSingleBook = async (bookId) => {
-        const value = await getBookById(bookId);
-        setBook(value);
-    }
+	const getSingleBook = async (bookId) => {
+		const value = await getBookById(bookId);
+		setBook(value);
+	};
 	useEffect(() => {
-        // One way to get book by id fetching in here.
+		// One way to get book by id fetching in here.
 		// fetch("/data/books-data.json") //Need to be careful.
 		// 	.then((res) => res.json())
 		// 	.then((data) => {
@@ -26,15 +24,13 @@ export default function BookDetailsPage() {
 		// 	})
 		// 	.catch((error) => console.log("Error", error));
 
-        //Another way to get book by Id using this util function.
-        getSingleBook(bookId);
+		//Another way to get book by Id using this util function.
+		getSingleBook(bookId);
 	}, []);
 
 	return (
 		<div className="container mx-auto w-11/12">
-			<Navbar />
 			<BookDetails book={book} />
-			<Footer />
 		</div>
 	);
 }

@@ -3,7 +3,7 @@ import { ROUTES } from "../../routes";
 
 export default function Navbar() {
 	return (
-		<header>
+		<header className="container mx-auto w-11/12">
 			<nav className="navbar bg-base-100">
 				<div className="navbar-start">
 					<div className="dropdown">
