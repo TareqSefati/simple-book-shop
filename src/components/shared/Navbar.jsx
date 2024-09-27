@@ -35,6 +35,12 @@ export default function Navbar() {
 								<Link to={ROUTES.HOME}>Home</Link>
 							</li>
 							<li>
+								<Link to={ROUTES.BOOKS}>Books</Link>
+							</li>
+							<li>
+								<Link to={ROUTES.AUTHORS}>Authors</Link>
+							</li>
+							<li>
 								<Link to={ROUTES.ABOUT}>About</Link>
 							</li>
 							<li>
@@ -57,9 +63,15 @@ export default function Navbar() {
 					</a>
 				</div>
 				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-horizontal px-1">
+					<ul className="menu menu-horizontal space-x-2">
 						<li>
 							<Link to={ROUTES.HOME}>Home</Link>
+						</li>
+						<li>
+							<Link to={ROUTES.BOOKS}>Books</Link>
+						</li>
+						<li>
+							<Link to={ROUTES.AUTHORS}>Authors</Link>
 						</li>
 						<li>
 							<Link to={ROUTES.ABOUT}>About</Link>

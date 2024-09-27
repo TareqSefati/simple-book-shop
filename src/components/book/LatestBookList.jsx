@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
-import Book from "./Book";
 import { getAllBooks } from "../../utils/Books";
+import Book from "./Book";
 
-export default function BookList() {
+export default function LatestBookList() {
 	const [books, setBooks] = useState([]);
-    const getAllBooksData = async () => {
-        const value = await getAllBooks();
-        setBooks(value);
-        console.log(books);
-    }
+	const getAllBooksData = async () => {
+		const value = await getAllBooks();
+		setBooks(value);
+		console.log(books);
+	};
 	useEffect(() => {
-        // One way to get book by id fetching in here.
+		// One way to get book by id fetching in here.
 		// fetch("/data/books-data.json")
 		// 	.then((res) => res.json())
 		// 	.then((data) => setBooks(data))
 		// 	.catch((error) => console.log("Error", error));
 
-        //Another way to get book by Id using this util function.
-        getAllBooksData();
+		//Another way to get book by Id using this util function.
+		getAllBooksData();
 	}, []);
 
 	return (
@@ -27,7 +27,7 @@ export default function BookList() {
 					id="category-name"
 					className="text-center font-bold text-5xl mb-5"
 				>
-					All Books
+					All Latest Books
 				</h1>
 				<hr className="w-3/4 mx-auto" />
 			</div>
