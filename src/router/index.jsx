@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import AuthorDetails from "../components/author/AuthorDetails";
+import AuthorList from "../components/author/AuthorList";
 import AllBooks from "../components/book/AllBooks";
 import CommonLayout from "../layout/CommonLayout";
 import BookDetailsPage from "../pages/BookDetailsPage";
@@ -6,9 +8,7 @@ import FaqPage from "../pages/FaqPage";
 import Homepage from "../pages/Homepage";
 import NotFoundPage from "../pages/NotFoundPage";
 import { ROUTES } from "../routes";
-import AuthorList from "../components/author/AuthorList";
 import { getAllAuthors } from "../utils/Authors";
-import AuthorDetails from "../components/author/AuthorDetails";
 const router = createBrowserRouter([
 	{
 		path: `${ROUTES.HOME}`,
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: `${ROUTES.AUTHORS}`,
-                loader: getAllAuthors,
+				loader: getAllAuthors,
 				element: <AuthorList />,
 			},
 			{
